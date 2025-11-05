@@ -1,0 +1,226 @@
+@font-face{
+	src: url(fonts/outfit/Outfit-Regular.ttf);
+	font-family: outfit;
+}
+
+@font-face{
+	src: url(fonts/young-serif/YoungSerif-Regular.ttf);
+	font-family: young-serif;
+}
+
+:root {
+	--prep-color: #7b284f;
+	--prep-bg: #fff5fa;
+	--bg: #f3e5d8;
+	--brown: #854532;
+	--border: #e4ded8;
+	--h1-color: #302d2c;
+	--p-color: #4d4d4d;
+}
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: var(--bg);
+}
+
+.grid{
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+
+.card{
+	width: 36rem;
+	background-color: white;
+	padding: 2rem;
+	border-radius: 1rem;
+}
+
+.card img{
+	width: 32rem;
+	border-radius: 0.7rem;
+}
+
+.info h1{
+	font-family: young-serif;
+	font-weight: 400;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	color: var(--h1-color);
+}
+
+.info p{
+	font-family: outfit;
+	margin-bottom: 1rem;
+	font-size: 0.8rem;
+	line-height: 1.2rem;
+	color: #4d4d4d;
+}
+
+.prep-time{
+	font-family: outfit;
+	font-weight: 400;
+	background-color: var(--prep-bg);
+	padding: 1rem;
+	line-height: 1.6rem;
+	border-radius: 1rem;
+}
+
+.prep-time h3{
+	color: var(--prep-color);
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+.prep-time ul{
+	margin-left: 1.4rem;
+	list-style: none;
+}
+
+.prep-time ul li::before{
+	content: "\2022"; /*\2022 is used to add a bullet point */
+	font-weight: bold;
+	display: inline-block;
+	width: 1rem;
+	margin-left: -2rem;
+	color: var(--prep-color);
+	margin-right: 1rem;
+}
+
+.prep-time li{
+	font-size: 0.8rem;
+	margin-left: 1rem;
+}
+
+.ingredients, .instructions{
+	font-family: outfit;
+	font-weight: 400;
+	line-height: 1.5rem;
+	border-bottom: 1px solid var(--border);
+	margin-bottom: 1.4rem;
+}
+
+.ingredients h2, .instructions h2, .nutrition h2{
+	margin: 1.2rem 0rem;
+	font-family: young-serif;
+	color: var(--brown);
+	font-weight: 400;
+}
+
+.ingredients ul {
+	color: var(--p-color);
+	font-size: 0.8rem;
+	margin: 0 0 1.75rem 1.5rem;
+	list-style: none;
+}
+
+.ingredients li{
+	margin-left: 1rem;
+}
+
+.ingredients ul li::before{
+	content: "\2022";
+	color: var(--brown);
+	display: inline-block;
+	width: 0rem;
+	margin-left: -2rem;
+	margin-right: 2rem;
+	font-weight: bold;
+}
+
+.instructions ol{
+	color: var(--p-color);
+	font-size: 0.8rem;
+	margin: 0 0 1.75rem 1.5rem;
+	list-style: none;
+	counter-reset: counter-function; /*it decreases counter number marker*/
+}
+.instructions ol li{
+	counter-increment: counter-function; /*it increases counter number marker*/
+	margin-left: 1rem;
+	line-height: 1.4rem;
+}
+.instructions ol li::before{
+	content: counter(counter-function)".";
+	display: inline-block;
+	width: 1rem;
+	margin-left: -2rem; /* -1 for going back from the lines and another -1 for increment of space between marker and text*/
+	margin-right: 1rem;
+	color: var(--brown);
+	font-weight: bold;
+	font-family: outfit;
+}
+
+.nutrition p{
+	font-family: outfit;
+	color: var(--p-color);
+	font-size: 0.8rem;
+	margin-bottom: 1rem;
+}
+ .nutrition{
+	 margin-bottom: 1rem;
+ }
+.nutrition tr{
+	font-family: outfit;
+	color: var(--p-color);
+	border-bottom: 1px solid var(--border);
+	width: 32rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 0.6rem 2rem;
+	font-size: 0.9rem;
+}
+
+.nutrition #bold{
+	color: var(--brown);
+	font-weight: bold;
+}
+
+.nutrition #no-border{
+	border: none;
+}
+
+@media (max-width: 600px) {
+	body{
+		background-color: #fff;
+	}
+	.grid{
+		display: block;
+	}
+	.card{
+		border-radius: 0;
+		padding: 0;
+		width: 1fr;
+	}
+	.card img{
+		border-radius: 0;
+		width: 100%;
+	}
+	.info h1{
+		margin: 2rem;
+	}
+	.info p{
+		margin: 2rem;
+		font-size: 1rem;
+	}
+	.prep-time{
+		margin: 2rem;
+	}
+	.ingredients ul, .instructions ol, .nutrition p{
+		font-size: 1rem;
+	}
+	.ingredients{
+		margin: 2rem;
+	}
+	.instructions{
+		margin: 2rem;
+	}
+	.nutrition{
+		margin: 2rem;
+	}
+}
